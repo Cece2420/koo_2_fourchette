@@ -1,40 +1,38 @@
 <?php
 require "config.php";
-
 $cats=$pdo->query("SELECT idCategorie,nom FROM categories")->fetchAll();
 
 if(isset($_POST["titre"])){
-  if(!isset($_SESSION["user"])) { $err=1; }
-  else {
-    $img = "marmelade-carottes.jpg";
-    if(!empty($_FILES["photo"]["name"])){
-      $img = $_FILES["photo"]["name"];
-      move_uploaded_file($_FILES["photo"]["tmp_name"], "photos/recettes/".$img);
+    if(!isset($_SESSION["user"])) { $err=1; }
+    else{
+        $img="marmelade-carottes.jpg";
+        if(!empty($_FILES["photo"]["name"])){
+            $img=$_FILES["photo"]["name"];
+            move_uploaded_file($_FILES["photo"]["tmp_name"], "photos/recettes/".$img);
+        }
+
+        $stmt=$pdo->prepare("INSERT INTO recettes (titre,chapo,img,preparation,ingredient,membre,couleur,categorie,tempsCuisson,tempsPreparation,difficulte,prix)
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+        $stmt->execute([
+            $_POST["titre"],
+            $_POST["resume"],
+            $img,
+            $_POST["etapes"],
+            $_POST["ingredients"],
+            $_SESSION["user"]["idMembre"],
+            "fushia",
+            $_POST["categorie"],
+            "0 min",
+            $_POST["temps"]." min",
+            $_POST["difficulte"],
+            "Pas cher"
+        ]);
+
+        header("Location: index.php");
+        exit;
     }
-
-    $stmt=$pdo->prepare("INSERT INTO recettes (titre,chapo,img,preparation,ingredient,membre,couleur,categorie,tempsCuisson,tempsPreparation,difficulte,prix)
-                         VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
-    $stmt->execute([
-      $_POST["titre"],
-      $_POST["resume"],
-      $img,
-      $_POST["etapes"],
-      $_POST["ingredients"],
-      $_SESSION["user"]["idMembre"],
-      "fushia",
-      $_POST["categorie"],
-      "0 min",
-      $_POST["temps"]." min",
-      $_POST["difficulte"],
-      "Pas cher"
-    ]);
-
-    header("Location: index.php");
-    exit;
-  }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -50,7 +48,9 @@ if(isset($_POST["titre"])){
 
     <h1 class="titre">Déposer une recette</h1>
 
-    <form class="formulaire" method="post">
+    <?php if(isset($err)) echo "<p style='color:red;text-align:center'>Connecte-toi</p>"; ?>
+
+    <form class="formulaire" action="#" method="post" enctype="multipart/form-data">
 
       <div class="champ">
         <label for="titre">Titre de la recette</label>
@@ -60,10 +60,12 @@ if(isset($_POST["titre"])){
       <div class="ligne">
         <div class="champ">
           <label for="categorie">Catégorie</label>
-          <option value="">Choisir…</option>
-<?php foreach($cats as $c){ ?>
-  <option value="<?= $c["idCategorie"] ?>"><?= $c["nom"] ?></option>
-<?php } ?>
+          <select id="categorie" name="categorie" required>
+            <option value="">Choisir…</option>
+            <?php foreach($cats as $c){ ?>
+              <option value="<?php echo $c["idCategorie"]; ?>"><?php echo $c["nom"]; ?></option>
+            <?php } ?>
+          </select>
         </div>
 
         <div class="champ">
@@ -96,18 +98,12 @@ if(isset($_POST["titre"])){
 
       <div class="champ">
         <label for="ingredients">Ingrédients</label>
-        <textarea id="ingredients" name="ingredients" placeholder="Ex:
-- 200g de riz
-- 1 oignon
-- 2 cuillères de curry" required></textarea>
+        <textarea id="ingredients" name="ingredients" placeholder="Ex: - 200g de riz - 1 oignon - 2 cuillères de curry" required></textarea>
       </div>
 
       <div class="champ">
         <label for="etapes">Étapes</label>
-        <textarea id="etapes" name="etapes" placeholder="Ex:
-1) Couper l'oignon…
-2) Faire revenir…
-3) Ajouter…" required></textarea>
+        <textarea id="etapes" name="etapes" placeholder="Ex: 1) Couper l'oignon… 2) Faire revenir… 3) Ajouter…" required></textarea>
       </div>
 
       <div class="champ">

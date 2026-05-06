@@ -2,19 +2,18 @@
 require "config.php";
 
 if(isset($_POST["pseudo"]) && isset($_POST["mdp"])){
-  $stmt=$pdo->prepare("SELECT * FROM membres WHERE login=?");
-  $stmt->execute([$_POST["pseudo"]]);
-  $u=$stmt->fetch();
-  if($u && $u["password"]==sha1($_POST["mdp"])){
-    $_SESSION["user"]=$u;
-    header("Location: index.php");
-    exit;
-  } else {
-    $err=1;
-  }
+    $stmt=$pdo->prepare("SELECT * FROM membres WHERE login=?");
+    $stmt->execute([$_POST["pseudo"]]);
+    $u=$stmt->fetch();
+    if($u && $u["password"]==sha1($_POST["mdp"])){
+        $_SESSION["user"]=$u;
+        header("Location: index.php");
+        exit;
+    } else {
+        $err=1;
+    }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -29,9 +28,8 @@ if(isset($_POST["pseudo"]) && isset($_POST["mdp"])){
 <div class="tout">
 
     <h1 class="connecter">Se Connecter</h1>
-    <?php if ($erreur): ?>
-        <p style="color:red; text-align:center;"><?= $erreur ?></p>
-    <?php endif; ?>
+
+    <?php if(isset($err)) echo "<p style='color:red;text-align:center'>Erreur</p>"; ?>
 
     <form class="formulaire" method="post">
 
