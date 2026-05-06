@@ -10,7 +10,7 @@ $classes = ["marmelade","pommes","girolles"];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>koo2fourchette</title>
+    <title>koo2fourchette</title> 
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
@@ -25,26 +25,23 @@ $classes = ["marmelade","pommes","girolles"];
         </div>
 
         <div class ="l1">
-            <img src= "images/koo_2_fourchette.png">
+            <img src= "images/koo_2_fourchette.png"> 
             <div class="search-bar">
                 <input type="search" placeholder="Rechercher une recette">
                 <button type="submit">OK</button>
             </div>
             <div class="action">
-                <?php if(!isset($_SESSION["user"])) { ?>
-                    <a href="connecter.php" class="connection">Se connecter</a>
-                    <a href="compte.php" class="compte">Créer un compte</a>
-                <?php } else { ?>
-                    <a href="#" class="connection"><?= $_SESSION["user"]["login"] ?></a>
-                    <a href="logout.php" class="compte">Déconnexion</a>
-                <?php } ?>
+                <a href="connecter.php" class="connection">Se connecter</a>
+                <a href="compte.php" class="compte">Créer un compte</a>
             </div>
         </div>
+
 
         <div class="l2">
             <div class="slogan"><h1>miam miam, gloup gloup, laps laps</h1></div>
             <a href="deposer.php" id="deposer">Déposer une recette</a>
         </div>
+
 
         <nav class="navigateur">
             <ul>
@@ -72,17 +69,50 @@ $classes = ["marmelade","pommes","girolles"];
         </section>
 
         <section class="recettes-jour">
-            <?php foreach($recettes as $i=>$r){ ?>
-            <div class="<?php echo $classes[$i]; ?>">
-                <img src="photos/recettes/<?php echo $r["img"]; ?>">
-                <h3><?php echo $r["titre"]; ?></h3>
-                <p><?php echo $r["chapo"]; ?></p>
+
+            <div class="marmelade">
+                <img src="photos/recettes/marmelade-carottes.jpg">
+                <h3>Marmelade de carottes</h3>
+                <p>Marmelade de carottes Marmelade de carottes<br>
+                   Marmelade de carottes Marmelade de carottes<br>
+                   Marmelade de carottes Marmelade de carottes<br>
+                   Marmelade de carottes Marmelade de carottes<br>
+                </p>
                 <div class="auteur">
-                    <img src ="photos/gravatars/<?php echo $r["gravatar"]; ?>">
-                    <p>proposé par <?php echo $r["prenom"]; ?></p>
+                    <img src ="photos/gravatars/natha.png">
+                    <p>proposé par Laure</p>
                 </div>
             </div>
-            <?php } ?>
+
+            <div class="pommes">
+                <img src="photos/recettes/pomme-de-terre-aux-herbes.jpg">
+                <h3>Pommes de terre aux herbes</h3>
+                <p>Pommes de terre aux Pommes de terre aux<br>
+                   Pommes de terre aux Pommes de terre aux<br>
+                   Pommes de terre aux Pommes de terre aux<br>
+                   Pommes de terre aux Pommes de terre aux<br>
+                </p>
+                <div class="auteur">
+                    <img src ="photos/gravatars/laurence.png">
+                    <p>proposé par Laurence</p>
+                </div>
+            </div>
+
+             <div class="girolles">
+                <img src="photos/recettes/girolles-paysanne.jpg">
+                <h3>Girolles à la paysanne</h3>
+                <p>Girolles à la paysanne Girolles à la paysanne<br>
+                   Girolles à la paysanne Girolles à la paysanne<br>
+                   Girolles à la paysanne Girolles à la paysanne<br>
+                   Girolles à la paysanne Girolles à la paysanne<br>
+                </p>
+                <div class="auteur">
+                    <img src ="photos/gravatars/annie.png">
+                    <p>proposé par annie</p>
+                </div>
+
+            </div>
+
         </section>
 
     </main>
