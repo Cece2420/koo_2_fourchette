@@ -1,0 +1,207 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  background-color: white;
+  flex-direction: column;
+}
+
+.Application {
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.l1 {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.l1 img {
+  height: 70px;
+  text-align: left;
+}
+
+.search-bar {
+  display: flex;
+}
+
+.search-bar input {
+  padding: 7px;
+  border: 1px solid #000;
+  width: 300px;
+}
+
+.search-bar button {
+  background-color: #a50063;
+  color: white;
+  border: 1px solid #000;
+  border-left: none;
+  padding: 13px 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.action {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+}
+
+.connection {
+  background-color: #b3e600;
+  display: block;
+  text-decoration: none;
+  color: white;
+  padding: 13px 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.compte {
+  background-color: #4a5edb;
+  display: block;
+  text-decoration: none;
+  color: white;
+  padding: 13px 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.l2 {
+  display: flex;  
+  justify-content: space-between;
+  align-items: center ;
+  margin-top: 0px;
+}
+
+.slogan h1{
+  padding: 10px;
+  margin: 0%;
+}
+
+#deposer {
+  background-color: #a50063;
+  display: block;
+  text-decoration: none;
+  padding: 13px 121px;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+}
+
+.navigateur {
+  background-color: #a50063;
+  margin-top: 20px;
+}
+
+.navigateur ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+}
+
+.navigateur li {
+  padding: 12px 25px;
+}
+
+.navigateur a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.block {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.block img {
+  width: 70%;
+  height: auto;
+}
+
+.block-rose {
+  width: 15%;
+  background-color: #a50063;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  padding-top: 140px;
+}
+
+.block-bleu {
+  width: 15%;
+  background-color: #4a85d1;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  padding-top: 140px;
+}
+
+.titre-jour {
+  background-color: #a50063;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.titre-jour h2 {
+  margin-left: 10px;
+}
+
+.recettes-jour {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-direction: row;
+  padding: 30px 0px;
+}
+
+.recettes-jour img {
+  width: 450px;
+  height: 240px;
+  margin-left: 1px;
+}
+
+.marmelade {
+  background-color: #b3e600;
+  color: #000;
+}
+
+.pommes {
+  background-color: #4a85d1;
+  color: black;
+}
+
+.girolles {
+  background-color: #a50063;
+  color: black;
+}
+
+.auteur {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  background-color: white;
+  border: #000 1px solid;
+}
+
+.auteur img {
+  width: 50px;
+  height: 50px;
+}
+
+.footer {
+  background-color: black;
+  height: 80px;
+}
