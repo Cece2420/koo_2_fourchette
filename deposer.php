@@ -1,3 +1,36 @@
+<?php
+require "config.php";
+$cats = $pdo->query("SELECT idCategorie, nom FROM categories")->fetchAll();
+
+if(isset($_POST["titre"])){
+  $img = "marmelade-carottes.jpg";
+  if(!empty($_FILES["photo"]["name"])){
+    $img = $_FILES["photo"]["name"];
+    move_uploaded_file($_FILES["photo"]["tmp_name"], "photos/recettes/".$img);
+  }
+
+  $stmt = $pdo->prepare("INSERT INTO recettes (titre,chapo,img,preparation,ingredient,membre,couleur,categorie,tempsCuisson,tempsPreparation,difficulte,prix)
+  VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+
+  $stmt->execute([
+    $_POST["titre"],
+    $_POST["resume"],
+    $img,
+    $_POST["etapes"],
+    $_POST["ingredients"],
+    1,
+    "fushia",
+    $_POST["categorie"],
+    "0 min",
+    $_POST["temps"]." min",
+    $_POST["difficulte"],
+    "Pas cher"
+  ]);
+
+  header("Location: recettes.php");
+  exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -23,11 +56,9 @@
         <label for="categorie">Catégorie</label>
         <select id="categorie" name="categorie" required>
           <option value="">Choisir…</option>
-          <option>Entrée</option>
-          <option>Plat</option>
-          <option>Dessert</option>
-          <option>Végétarien</option>
-          <option>Rapide</option>
+          <?php foreach($cats as $c){ ?>
+            <option value="<?php echo $c["idCategorie"]; ?>"><?php echo $c["nom"]; ?></option>
+          <?php } ?>
         </select>
       </div>
 
@@ -77,7 +108,7 @@
     <button type="submit" class="bouton">Déposer la recette</button>
 
     <p class="mini">
-      <a href="./index.html">Retour à l'accueil</a>
+      <a href="index.php">Retour à l'accueil</a>
     </p>
 
   </form>

@@ -1,3 +1,19 @@
+<?php
+require "config.php";
+
+if(isset($_POST["pseudo"]) && isset($_POST["mdp"])){
+  $stmt = $pdo->prepare("SELECT * FROM membres WHERE login=?");
+  $stmt->execute([$_POST["pseudo"]]);
+  $u = $stmt->fetch();
+  if($u && $u["password"] == sha1($_POST["mdp"])){
+    $_SESSION["user"] = $u;
+    header("Location: index.php");
+    exit;
+  } else {
+    $err = 1;
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -11,7 +27,7 @@
 <div class="tout">
   <h1 class="connecter">Se Connecter</h1>
 
-  <form class="formulaire">
+  <form class="formulaire" method="post">
     <div class="champ">
       <label>Pseudo</label>
       <input type="text" name="pseudo" class="pseudo" placeholder="Votre pseudo">
@@ -25,8 +41,8 @@
     <input type="submit" value="Se connecter" class="bouton">
 
     <div class="compte">
-      <p>Vous n'avez pas encore de compte ? <a href="compte.html">Inscrivez-vous ici !</a></p></br>
-      <a href="./index.html" id="accueil">Retour à l'accueil</a>
+      <p>Vous n'avez pas encore de compte ? <a href="compte.php">Inscrivez-vous ici !</a></p></br>
+      <a href="./index.php" id="accueil">Retour à l'accueil</a>
     </div>
   </form>
 </div>

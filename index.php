@@ -1,3 +1,11 @@
+<?php
+require "config.php";
+$recettes = $pdo->query("SELECT r.titre,r.chapo,r.img,m.prenom,m.gravatar
+FROM recettes r JOIN membres m ON m.idMembre=r.membre
+ORDER BY r.dateCrea DESC LIMIT 3")->fetchAll();
+$classes = ["marmelade","pommes","girolles"];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,19 +31,19 @@
       <button type="submit">OK</button>
     </div>
     <div class="action">
-      <a href="connecter.html" class="connection">Se connecter</a>
-      <a href="compte.html" class="compte">Créer un compte</a>
+      <a href="connecter.php" class="connection">Se connecter</a>
+      <a href="compte.php" class="compte">Créer un compte</a>
     </div>
   </div>
 
   <div class="l2">
     <div class="slogan"><h1>miam miam, gloup gloup, laps laps</h1></div>
-    <a href="deposer.html" id="deposer">Déposer une recette</a>
+    <a href="deposer.php" id="deposer">Déposer une recette</a>
   </div>
 
   <nav class="navigateur">
     <ul>
-      <li class="recettes"><a href="#">RECETTES</a></li>
+      <li class="recettes"><a href="recettes.php">RECETTES</a></li>
       <li class="menus"><a href="#">MENUS</a></li>
       <li class="desserts"><a href="#">DESSERTS</a></li>
       <li class="minceur"><a href="#">MINCEUR</a></li>
