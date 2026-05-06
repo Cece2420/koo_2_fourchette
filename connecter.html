@@ -1,39 +1,34 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Se connecter</title>
-    <link rel="stylesheet" href="connecter.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Se connecter</title>
+  <link rel="stylesheet" href="connecter.css">
 </head>
-
 <body>
 
 <div class="tout">
+  <h1 class="connecter">Se Connecter</h1>
 
-    <h1 class="connecter">Se Connecter</h1>
+  <form class="formulaire">
+    <div class="champ">
+      <label>Pseudo</label>
+      <input type="text" name="pseudo" class="pseudo" placeholder="Votre pseudo">
+    </div>
 
-    <form class="formulaire">
+    <div class="champ">
+      <label>Mot de passe</label>
+      <input type="password" name="mdp" class="mdp" placeholder="Votre mot de passe">
+    </div>
 
-        <div class="champ">
-            <label>Pseudo</label>
-            <input type="text" name="pseudo" class="pseudo" placeholder="Votre pseudo">
-        </div>
+    <input type="submit" value="Se connecter" class="bouton">
 
-        <div class="champ">
-            <label>Mot de passe</label>
-            <input type="password" name="mdp" class="mdp" placeholder="Votre mot de passe">
-        </div>
-
-        <input type="submit" value="Se connecter" class="bouton">
-
-        <div class="compte">
-            <p>Vous n'avez pas encore de compte ? <a href="compte.php">Inscrivez-vous ici !</a></p></br>
-            <a href="./index.php" id="accueil">Retour à l'accueil</a>
-        </div>
-
-    </form>
-
+    <div class="compte">
+      <p>Vous n'avez pas encore de compte ? <a href="compte.html">Inscrivez-vous ici !</a></p></br>
+      <a href="./index.html" id="accueil">Retour à l'accueil</a>
+    </div>
+  </form>
 </div>
 
 </body>

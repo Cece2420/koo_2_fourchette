@@ -1,114 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>koo2fourchette</title> 
-    <link rel="stylesheet" href="style.css" type="text/css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>koo2fourchette</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
 
-    <header class ="header">
+<header class="header">
+  <div class="Application">
+    <img src="images/facebook.png">
+    <img src="images/twitter.png">
+    <img src="images/google.png">
+    <img src="images/youtube.png">
+  </div>
 
-        <div class="Application">
-            <img src="images/facebook.png">
-            <img src="images/twitter.png">
-            <img src="images/google.png">
-            <img src="images/youtube.png">
-        </div>
+  <div class="l1">
+    <img src="images/koo_2_fourchette.png">
+    <div class="search-bar">
+      <input type="search" placeholder="Rechercher une recette">
+      <button type="submit">OK</button>
+    </div>
+    <div class="action">
+      <a href="connecter.html" class="connection">Se connecter</a>
+      <a href="compte.html" class="compte">Créer un compte</a>
+    </div>
+  </div>
 
-        <div class ="l1">
-            <img src= "images/koo_2_fourchette.png"> 
-            <div class="search-bar">
-                <input type="search" placeholder="Rechercher une recette">
-                <button type="submit">OK</button>
-            </div>
-            <div class="action">
-                <a href="connecter.php" class="connection">Se connecter</a>
-                <a href="compte.php" class="compte">Créer un compte</a>
-            </div>
-        </div>
+  <div class="l2">
+    <div class="slogan"><h1>miam miam, gloup gloup, laps laps</h1></div>
+    <a href="deposer.html" id="deposer">Déposer une recette</a>
+  </div>
 
+  <nav class="navigateur">
+    <ul>
+      <li class="recettes"><a href="#">RECETTES</a></li>
+      <li class="menus"><a href="#">MENUS</a></li>
+      <li class="desserts"><a href="#">DESSERTS</a></li>
+      <li class="minceur"><a href="#">MINCEUR</a></li>
+      <li class="atelier"><a href="#">ATELIER</a></li>
+      <li class="contact"><a href="#">CONTACT</a></li>
+    </ul>
+  </nav>
+</header>
 
-        <div class="l2">
-            <div class="slogan"><h1>miam miam, gloup gloup, laps laps</h1></div>
-            <a href="deposer.php" id="deposer">Déposer une recette</a>
-        </div>
+<main>
+  <section class="block">
+    <img src="photos/vig/creme-petits-poids.jpg" alt="Crème de petits pois">
+    <div class="block-rose">block1<br>140×300</div>
+    <div class="block-bleu">block1<br>140×300</div>
+  </section>
 
+  <section class="titre-jour">
+    <h2>RECETTES DU JOUR</h2>
+  </section>
 
-        <nav class="navigateur">
-            <ul>
-                <li class="recettes"><a href="#">RECETTES</a></li>
-                <li class="menus"><a href="#">MENUS</a></li>
-                <li class="desserts"><a href="#">DESSERTS</a></li>
-                <li class="minceur"><a href="#">MINCEUR</a></li>
-                <li class="atelier"><a href="#">ATELIER</a></li>
-                <li class="contact"><a href="#">CONTACT</a></li>
-            </ul>
-        </nav>
+  <section class="recettes-jour">
+    <div class="marmelade">
+      <img src="photos/recettes/marmelade-carottes.jpg">
+      <h3>Marmelade de carottes</h3>
+      <p>
+        Marmelade de carottes Marmelade de carottes<br>
+        Marmelade de carottes Marmelade de carottes<br>
+        Marmelade de carottes Marmelade de carottes<br>
+        Marmelade de carottes Marmelade de carottes<br>
+      </p>
+      <div class="auteur">
+        <img src="photos/gravatars/natha.png">
+        <p>proposé par Laure</p>
+      </div>
+    </div>
 
-    </header>
+    <div class="pommes">
+      <img src="photos/recettes/pomme-de-terre-aux-herbes.jpg">
+      <h3>Pommes de terre aux herbes</h3>
+      <p>
+        Pommes de terre aux Pommes de terre aux<br>
+        Pommes de terre aux Pommes de terre aux<br>
+        Pommes de terre aux Pommes de terre aux<br>
+        Pommes de terre aux Pommes de terre aux<br>
+      </p>
+      <div class="auteur">
+        <img src="photos/gravatars/laurence.png">
+        <p>proposé par Laurence</p>
+      </div>
+    </div>
 
-    <main>
+    <div class="girolles">
+      <img src="photos/recettes/girolles-paysanne.jpg">
+      <h3>Girolles à la paysanne</h3>
+      <p>
+        Girolles à la paysanne Girolles à la paysanne<br>
+        Girolles à la paysanne Girolles à la paysanne<br>
+        Girolles à la paysanne Girolles à la paysanne<br>
+        Girolles à la paysanne Girolles à la paysanne<br>
+      </p>
+      <div class="auteur">
+        <img src="photos/gravatars/annie.png">
+        <p>proposé par annie</p>
+      </div>
+    </div>
+  </section>
+</main>
 
-        <section class="block">
-             <img src="photos/vig/creme-petits-poids.jpg" alt="Crème de petits pois">
-             <div class="block-rose">block1<br>140×300</div>
-             <div class="block-bleu">block1<br>140×300</div>
-        </section>
+<footer class="footer"></footer>
 
-        <section class="titre-jour">
-            <h2>RECETTES DU JOUR</h2>
-        </section>
-
-        <section class="recettes-jour">
-
-            <div class="marmelade">
-                <img src="photos/recettes/marmelade-carottes.jpg">
-                <h3>Marmelade de carottes</h3>
-                <p>Marmelade de carottes Marmelade de carottes<br>
-                   Marmelade de carottes Marmelade de carottes<br>
-                   Marmelade de carottes Marmelade de carottes<br>
-                   Marmelade de carottes Marmelade de carottes<br>
-                </p>
-                <div class="auteur">
-                    <img src ="photos/gravatars/natha.png">
-                    <p>proposé par Laure</p>
-                </div>
-            </div>
-
-            <div class="pommes">
-                <img src="photos/recettes/pomme-de-terre-aux-herbes.jpg">
-                <h3>Pommes de terre aux herbes</h3>
-                <p>Pommes de terre aux Pommes de terre aux<br>
-                   Pommes de terre aux Pommes de terre aux<br>
-                   Pommes de terre aux Pommes de terre aux<br>
-                   Pommes de terre aux Pommes de terre aux<br>
-                </p>
-                <div class="auteur">
-                    <img src ="photos/gravatars/laurence.png">
-                    <p>proposé par Laurence</p>
-                </div>
-            </div>
-
-             <div class="girolles">
-                <img src="photos/recettes/girolles-paysanne.jpg">
-                <h3>Girolles à la paysanne</h3>
-                <p>Girolles à la paysanne Girolles à la paysanne<br>
-                   Girolles à la paysanne Girolles à la paysanne<br>
-                   Girolles à la paysanne Girolles à la paysanne<br>
-                   Girolles à la paysanne Girolles à la paysanne<br>
-                </p>
-                <div class="auteur">
-                    <img src ="photos/gravatars/annie.png">
-                    <p>proposé par annie</p>
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-    <footer class="footer"></footer>
 </body>
 </html>
